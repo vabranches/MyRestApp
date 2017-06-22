@@ -33,7 +33,7 @@ public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.AndroidV
     @Override
     public void onBindViewHolder(AndroidViewHolder holder, int position) {
         holder.tvTitulo.setText(androids.get(position).getNome());
-        holder.tvSubtitulo.setText("Versão: "+androids.get(position).getVersao()+" - API: "+androids.get(position).getApi());
+        holder.tvSubtitulo.setText("Versão: "+androids.get(position).getVersao()+" - "+androids.get(position).getApi());
 
 
         Picasso.with(holder.itemView.getContext())
@@ -46,6 +46,11 @@ public class AndroidAdapter extends RecyclerView.Adapter<AndroidAdapter.AndroidV
     @Override
     public int getItemCount() {
         return androids.size();
+    }
+
+    public void update(List<Android> androids){
+        this.androids = androids;
+        notifyDataSetChanged();
     }
 
     public class AndroidViewHolder extends RecyclerView.ViewHolder{

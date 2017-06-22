@@ -7,7 +7,7 @@ public class RetrofitClient {
 
     private static Retrofit retrofit = null;
 
-    private static Retrofit getClient(String baseURL){
+    public static Retrofit getClient(String baseURL){
         if (retrofit==null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseURL)
